@@ -15,7 +15,7 @@ html {
 
 header {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     height: 13vh;
     background-color: var(--navbar-color);
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
@@ -28,7 +28,7 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-left: 2em;
+    width: 40%;
 }
 
 .logo h1 {
@@ -39,17 +39,17 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 60%;
 }
 
 .menu nav ul {
     display: flex;
     list-style-type: none;
-    padding: 1em;
 }
 
-nav ul li {
-    padding: .5em;
-}
+/* nav  {
+    display: flex;
+} */
 
 nav ul li a {
     text-decoration: none;
@@ -67,9 +67,65 @@ li a:hover {
     transition: .5s;
 }
 
+.toggle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu-toggle {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 20px;
+    position: relative;
+    display: none;
+}
+
+.menu-toggle span {
+    display: block;
+    width: 28px;
+    height: 3px;
+    background-color: var(--menu-color);
+    border-radius: 50px;
+    transition: all .5s;
+}
+
+.menu-toggle input {
+    position: absolute;
+    width: 44px;
+    height: 28px;
+    opacity: 0;
+    left: -8px;
+    top: -2px;
+    z-index: 2;
+}
+
+.menu-toggle span:nth-child(2) {
+    transform-origin: 0 0;
+}
+
+.menu-toggle span:nth-child(4) {
+    transform-origin: 0 100%;
+}
+
+.menu-toggle input:checked ~ span:nth-child(2) {
+    transform: rotate(45deg) translate(-1px, -.9px);
+}
+
+.menu-toggle input:checked ~ span:nth-child(4) {
+    transform: rotate(-45deg) translate(-1px, -.1px);
+}
+
+.menu-toggle input:checked ~ span:nth-child(3) {
+    transform: scale(0);
+}
+
 .profile {
     display: flex;
     flex-direction: column;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     background-image: url(assets/images/2.jpg);
@@ -165,7 +221,6 @@ li a:hover {
 .project {
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     background-image: url(assets/images/5.jpg);
@@ -300,3 +355,57 @@ li a:hover {
     font-size: 30px;
     color: var(--menu-color);
 }
+
+
+/* @media screen and (max-width : 750px) {
+    .menu {
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: 560px) {
+    .logo {
+        width: 80%;
+    }
+
+     nav ul{
+        position: absolute;
+        right: 0;
+        top: 0;
+        flex-direction: column;
+        justify-content: space-evenly;
+        background-color: var(--navbar-color);
+        height: 100vh;
+        width: 80%;
+        align-items: center ;
+        z-index: -1;
+        opacity: .9;
+        transform: translateX(100%);
+    }
+
+    .menu-toggle {
+        display: flex;
+    }
+
+    .profile {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .project {
+        height: 120vh;
+    }
+
+    .gambar3 {
+        width: 100%;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .gambarProject {
+        height: 30%;
+    }
+} */
